@@ -24,16 +24,15 @@ body {
     justify-content: center;
     font-size: 15px;
 }
-
 #form {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     margin: 5px 0px;
 }
 #button-radio{
     padding-top:5px;
     display: flex;
-    gap:10px;
+    gap:30px;
 }
 
 #button-apply{
@@ -60,18 +59,22 @@ body {
     flex-direction: column;
 }
 
-.affair, .buttons-for-task{
+.active-task, .buttons-for-task{
     display: flex;
     justify-content: center;
     gap: 10px
 }
-.affair{
+.active-task, .done-task{
     display: flex;
     justify-content: space-between;
     padding: 12px 12px;
     border: 1px solid grey;
     align-items: center;
     margin:0;
+}
+
+.done-task{
+    text-decoration: line-through;
 }
 
 

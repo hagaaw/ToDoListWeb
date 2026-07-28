@@ -12,7 +12,7 @@
     <section id="to-do-list">
         <div id="header">
             <h2 id="title">ToDo List</h2>
-            <span id ="statistics" th:text="${countDone} + 'more to do, ' + ${countActive} + 'done'"></span>
+            <span id ="statistics" th:text="${countDone} + 'more to do, ' + ${countActive} + ' done'"></span>
         </div>
 
         <div id="for-form">
@@ -36,12 +36,12 @@
             </form>
         </div>
         <div id="affairs">
-            <div class = "affair" th:each="task: ${tasks}">
+            <div th:class = "${task.getStatusTask().name() == 'DONE' ? 'done-task' : 'active-task'}" th:each="task: ${tasks}">
                 <div class="name">
                     <span th:text="${task.getName()}"></span>
                 </div>
                 <div class="buttons-for-task">
-                    <div class="done">
+                    <div class="done" th:if="${task.getStatusTask().name() != 'DONE'}">
                         <input type="button">
                     </div>
                     <div class="remove">
