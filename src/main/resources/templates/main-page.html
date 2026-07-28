@@ -5,10 +5,84 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="/static/css/main-page.css">
+    <title>ToDo List</title>
+    <link href="/css/main-page.css" rel="stylesheet">
 </head>
 <body>
-    <h1>ВСЕМ ПРИВЕТ!</h1>
+    <section id="to-do-list">
+        <div id="header">
+            <h2 id="title">ToDo List</h2>
+            <span id ="statistics">2 more to do, 1 done </span>
+        </div>
+
+        <div id="for-form">
+            <form>
+                <div id="form">
+                    <div id="button-radio">
+                        <label>
+                            <input type="radio" name="for-sort" checked>All
+                        </label>
+                        <label>
+                            <input type="radio" name="for-sort" >Active
+                        </label>
+                        <label>
+                            <input type="radio" name="for-sort" >Done
+                        </label>
+                    </div>
+                    <div id="button-apply">
+                        <input type="button" value="Apply">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="affairs">
+            <div class = affair>
+                <div class="name">
+                    <span>Take a shower</span>
+                </div>
+                <div class="buttons-for-task">
+                    <div class="done">
+                        <input type="button">
+                    </div>
+                    <div class="remove">
+                        <input type="button">
+                    </div>
+                </div>
+            </div>
+            <div class = affair>
+                <div class="name">
+                    <span class="made">Buy flowers</span>
+                </div>
+                <div class="buttons-for-task">
+                    <div class="remove">
+                        <input type="button">
+                    </div>
+                </div>
+            </div>
+            <div class = affair>
+                <div class="name">
+                    <span>Go to gym</span>
+                </div>
+                <div class="buttons-for-task">
+                    <div class="done">
+                        <input type="button">
+                    </div>
+                    <div class="remove">
+                        <input type="button">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="new-affair">
+            <form>
+                <div id="name-for-new-affair">
+                    <input type="text" placeholder="What needs to be done">
+                </div>
+                <div id="button-for-add">
+                    <input type="button" value="Add Record">
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 </html>

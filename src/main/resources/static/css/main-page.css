@@ -1,0 +1,129 @@
+
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: grey;
+}
+#to-do-list{
+    padding: 30px 40px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+#statistics{
+    color: grey;
+    font-size: 15px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#header{
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+
+#form {
+    display: flex;
+    gap: 10px;
+    margin: 5px 0px;
+}
+#button-radio{
+    padding-top:5px;
+    display: flex;
+    gap:10px;
+}
+
+#button-apply{
+    display: flex;
+    justify-content: center;
+}
+
+#button-apply input{
+    border-radius: 10px;
+    background-color: blue;
+    color:white;
+    padding: 7px 15px;
+    font-size: 15px;
+    border: none;
+}
+
+#button-apply input:hover{
+    box-shadow: 3px 2px 3px 2px grey;
+}
+
+#affairs{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.affair, .buttons-for-task{
+    display: flex;
+    justify-content: center;
+    gap: 10px
+}
+.affair{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 12px;
+    border: 1px solid grey;
+    align-items: center;
+    margin:0;
+}
+
+
+.done input, .remove input{
+    border:none;
+    border-radius: 12px;
+    margin-right: 12px;
+}
+
+.done input:hover, .remove input:hover{
+    box-shadow: 2px 2px 2px 2px grey;
+}
+
+.name{
+    font-size: 20px;
+    margin-right: 100px;
+    margin-left: 12px;
+}
+
+.done input{
+    background-color: green;
+}
+.remove input{
+    background-color: red;
+}
+
+.made{
+    text-decoration: line-through;
+}
+#new-affair{
+    margin: 20px;
+
+}
+
+
+#button-for-add input{
+    color:white;
+    background-color: blue;
+    border: none;
+    border-radius: 12px;
+    padding: 7px 12px;
+}
+#button-for-add input:hover{
+    box-shadow: 3px 2px 3px 2px grey;
+}
+
+#name-for-new-affair input{
+    font-size: 15px;
+}
+
+#new-affair form{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
