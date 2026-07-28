@@ -33,4 +33,8 @@ public class ServiceForMainController {
     public void addTask(String name) {
         taskRepository.save(new TaskEntity(name, StatusTask.ACTIVE));
     }
+
+    public void removeTask(int id) {
+        taskRepository.deleteById(id);
+    }
 }

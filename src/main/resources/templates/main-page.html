@@ -41,12 +41,17 @@
                     <span th:text="${task.getName()}"></span>
                 </div>
                 <div class="buttons-for-task">
-                    <div class="done" th:if="${task.getStatusTask().name() != 'DONE'}">
-                        <input type="button">
-                    </div>
-                    <div class="remove">
-                        <input type="button">
-                    </div>
+                    <form action="">
+                        <div class="done" th:if="${task.getStatusTask().name() != 'DONE'}">
+                            <input type="submit" value="">
+                        </div>
+                    </form>
+                    <form action="/task/remove">
+                        <div class="remove">
+                            <input type="submit" value="">
+                            <input type="hidden" name="id" th:value="${task.getId()}">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

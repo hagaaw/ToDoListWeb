@@ -43,6 +43,10 @@ public class MainController {
         return "redirect:/home";
     }
 
-
+    @GetMapping("/task/remove")
+    public String removeTask(@RequestParam int id){
+        service.removeTask(id);
+        return "redirect:/home";
+    }
 
 }
