@@ -29,4 +29,8 @@ public class ServiceForMainController {
     public List<TaskEntity> getAllTask() {
         return taskRepository.findAll();
     }
+
+    public void addTask(String name) {
+        taskRepository.save(new TaskEntity(name, StatusTask.ACTIVE));
+    }
 }
