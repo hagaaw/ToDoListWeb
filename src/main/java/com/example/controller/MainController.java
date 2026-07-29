@@ -58,14 +58,8 @@ public class MainController {
     }
 
 
-    @GetMapping("/error-page")
-    public String getErrorPage(){
-        return "error-page";
-    }
 
 
-    @ExceptionHandler(Throwable.class)
-    public String handleThrowable(Throwable throwable){
-        return "redirect:/error-page";
-    }
+
+
 }
