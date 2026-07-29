@@ -33,6 +33,7 @@ public class MainController {
         model.addAttribute("countDone", countDone);
         model.addAttribute("countActive",countActive);
         model.addAttribute("tasks", toDoList);
+        model.addAttribute("filterMode", filterMode);
         return "main-page.html";
     }
 

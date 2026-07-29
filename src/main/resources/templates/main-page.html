@@ -20,13 +20,13 @@
                 <div id="form">
                     <div id="button-radio">
                         <label>
-                            <input type="radio" name="filterMode" value="ALL" checked>All
+                            <input type="radio" name="filterMode" value="ALL" th:checked="${filterMode == null || filterMode == 'ALL'}">All
                         </label>
                         <label>
-                            <input type="radio" name="filterMode" value="ACTIVE">Active
+                            <input type="radio" name="filterMode" value="ACTIVE" th:checked="${filterMode == 'ACTIVE'}">Active
                         </label>
                         <label>
-                            <input type="radio" name="filterMode" value="DONE">Done
+                            <input type="radio" name="filterMode" value="DONE" th:checked="${filterMode == 'DONE'}">Done
                         </label>
                     </div>
                     <div id="button-apply">
