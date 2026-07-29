@@ -28,8 +28,12 @@ public class ServiceForMainController {
         return taskRepository.findByStatusTask(StatusTask.ACTIVE).size();
     }
 
-    public List<TaskEntity> getAllTask() {
-        return taskRepository.findAll();
+    public List<TaskEntity> getAllTask(String filterMode) {
+        if(filterMode == null || filterMode.equals("ALL")){
+            return taskRepository.findAll();
+        }
+
+        return taskRepository.findByStatusTask(StatusTask.valueOf(filterMode));
     }
 
     public void addTask(String name) {
@@ -46,5 +50,9 @@ public class ServiceForMainController {
             task.setStatusTask(StatusTask.DONE);
             taskRepository.save(task);
         }
+    }
+
+    public List<TaskEntity> sortTask(StatusTask forSort) {
+        return taskRepository.findByStatusTask(forSort);
     }
 }

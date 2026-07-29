@@ -12,25 +12,25 @@
     <section id="to-do-list">
         <div id="header">
             <h2 id="title">ToDo List</h2>
-            <span id ="statistics" th:text="${countDone} + 'more to do, ' + ${countActive} + ' done'"></span>
+            <span id ="statistics" th:text="${countDone} + ' more to do, ' + ${countActive} + ' done'"></span>
         </div>
 
         <div id="for-form">
-            <form>
+            <form action="/home">
                 <div id="form">
                     <div id="button-radio">
                         <label>
-                            <input type="radio" name="for-sort" checked>All
+                            <input type="radio" name="filterMode" value="ALL" checked>All
                         </label>
                         <label>
-                            <input type="radio" name="for-sort" >Active
+                            <input type="radio" name="filterMode" value="ACTIVE">Active
                         </label>
                         <label>
-                            <input type="radio" name="for-sort" >Done
+                            <input type="radio" name="filterMode" value="DONE">Done
                         </label>
                     </div>
                     <div id="button-apply">
-                        <input type="button" value="Apply">
+                        <input type="submit" value="Apply">
                     </div>
                 </div>
             </form>

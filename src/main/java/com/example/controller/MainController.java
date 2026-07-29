@@ -25,9 +25,9 @@ public class MainController {
     }
 
     @GetMapping("/home")
-    public String getMain(Model model){
+    public String getMain(Model model, @RequestParam(required = false) String filterMode){
 
-        List<TaskEntity> toDoList = service.getAllTask();
+        List<TaskEntity> toDoList = service.getAllTask(filterMode);
         long countDone = service.getCountDone();
         long countActive = service.getCountActive();
         model.addAttribute("countDone", countDone);
@@ -35,6 +35,7 @@ public class MainController {
         model.addAttribute("tasks", toDoList);
         return "main-page.html";
     }
+
 
 
     @PostMapping("/task/create")
@@ -54,5 +55,6 @@ public class MainController {
         service.executeTask(id);
         return "redirect:/home";
     }
+
 
 }
