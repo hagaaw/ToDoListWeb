@@ -6,8 +6,10 @@ import com.example.entity.TaskEntity;
 import com.example.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.handler.SimpleServletHandlerAdapter;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServiceForMainController {
@@ -36,5 +38,13 @@ public class ServiceForMainController {
 
     public void removeTask(int id) {
         taskRepository.deleteById(id);
+    }
+
+    public void executeTask(int id) {
+        TaskEntity task = taskRepository.findById(id).orElse(null);
+        if (task != null){
+            task.setStatusTask(StatusTask.DONE);
+            taskRepository.save(task);
+        }
     }
 }

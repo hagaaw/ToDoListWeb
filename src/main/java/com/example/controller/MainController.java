@@ -49,4 +49,10 @@ public class MainController {
         return "redirect:/home";
     }
 
+    @GetMapping("/task/execute")
+    public String executeTask(@RequestParam int id){
+        service.executeTask(id);
+        return "redirect:/home";
+    }
+
 }
