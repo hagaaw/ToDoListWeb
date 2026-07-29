@@ -6,4 +6,15 @@ body{
     min-height: 100vh;
 }
 
+#button-to-home{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+
+#button-to-home input{
+    background-color: orange;
+    font-size: 25px;
+}
 

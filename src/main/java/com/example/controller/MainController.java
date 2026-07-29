@@ -6,6 +6,7 @@ import com.example.service.ServiceForMainController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,10 +31,13 @@ public class MainController {
         model.addAttribute("countActive",countActive);
         model.addAttribute("tasks", toDoList);
         model.addAttribute("filterMode", filterMode);
-        return "main-page.html";
+        return "main-page";
     }
 
-
+    @GetMapping("/")
+    public String redirectToMain(){
+        return "redirect:/home";
+    }
 
     @PostMapping("/task/create")
     public String createTask(@RequestParam String name){
@@ -53,4 +57,15 @@ public class MainController {
         return "redirect:/home";
     }
 
+
+    @GetMapping("/error-page")
+    public String getErrorPage(){
+        return "error-page";
+    }
+
+
+    @ExceptionHandler(Throwable.class)
+    public String handleThrowable(Throwable throwable){
+        return "redirect:/error-page";
+    }
 }
