@@ -41,13 +41,13 @@
                     <span th:text="${task.getName()}"></span>
                 </div>
                 <div class="buttons-for-task">
-                    <form action="/task/execute">
+                    <form action="/account/task/execute">
                         <div class="done" th:if="${task.getStatusTask().name() == 'ACTIVE'}">
                             <input type="submit" value="">
                             <input type="hidden" name="id" th:value="${task.getId()}">
                         </div>
                     </form>
-                    <form action="/task/remove">
+                    <form action="/account/task/remove">
                         <div class="remove">
                             <input type="submit" value="">
                             <input type="hidden" name="id" th:value="${task.getId()}">
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div id="new-affair">
-            <form action="/task/create" method="post">
+            <form action="/account/task/create" method="post">
                 <div id="name-for-new-affair">
                     <input type="text" name="name" placeholder="What needs to be done">
                 </div>

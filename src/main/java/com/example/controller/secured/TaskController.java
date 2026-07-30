@@ -34,19 +34,19 @@ public class TaskController {
     }
 
 
-    @PostMapping("/task/create")
+    @PostMapping("/account/task/create")
     public String createTask(@RequestParam String name){
         service.addTask(name);
         return "redirect:/account";
     }
 
-    @GetMapping("/task/remove")
+    @GetMapping("/account/task/remove")
     public String removeTask(@RequestParam int id){
         service.removeTask(id);
         return "redirect:/account";
     }
 
-    @GetMapping("/task/execute")
+    @GetMapping("/account/task/execute")
     public String executeTask(@RequestParam int id){
         service.executeTask(id);
         return "redirect:/account";
