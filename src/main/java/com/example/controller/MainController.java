@@ -6,7 +6,6 @@ import com.example.service.ServiceForMainController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +20,7 @@ public class MainController {
         this.service = service;
     }
 
-    @GetMapping("/home")
+    @GetMapping("/account")
     public String getMain(Model model, @RequestParam(required = false) String filterMode){
 
         List<TaskEntity> toDoList = service.getAllTask(filterMode);
@@ -31,12 +30,17 @@ public class MainController {
         model.addAttribute("countActive",countActive);
         model.addAttribute("tasks", toDoList);
         model.addAttribute("filterMode", filterMode);
-        return "main-page";
+        return "account-page";
+    }
+
+    @GetMapping("/main")
+    public String getMainMenu(){
+        return "landing-page";
     }
 
     @GetMapping("/")
     public String redirectToMain(){
-        return "redirect:/home";
+        return "redirect:/main";
     }
 
     @PostMapping("/task/create")
