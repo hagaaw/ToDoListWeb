@@ -35,7 +35,7 @@ public class MainController {
 
     @GetMapping("/main")
     public String getMainMenu(){
-        return "sign-up-page";
+        return "landing-page";
     }
 
     @GetMapping("/")
@@ -46,19 +46,19 @@ public class MainController {
     @PostMapping("/task/create")
     public String createTask(@RequestParam String name){
         service.addTask(name);
-        return "redirect:/home";
+        return "redirect:/account";
     }
 
     @GetMapping("/task/remove")
     public String removeTask(@RequestParam int id){
         service.removeTask(id);
-        return "redirect:/home";
+        return "redirect:/account";
     }
 
     @GetMapping("/task/execute")
     public String executeTask(@RequestParam int id){
         service.executeTask(id);
-        return "redirect:/home";
+        return "redirect:/account";
     }
 
 
