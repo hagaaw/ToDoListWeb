@@ -26,8 +26,10 @@ label input{
 #sign-up{
     display: flex;
     justify-content: center;
+    margin: 7px;
 }
 
 #sign-up input{
     padding: 7px;
 }
+

@@ -30,12 +30,12 @@ public class MainController {
         model.addAttribute("countActive",countActive);
         model.addAttribute("tasks", toDoList);
         model.addAttribute("filterMode", filterMode);
-        return "account-page";
+        return "private/account-page";
     }
 
     @GetMapping("/main")
     public String getMainMenu(){
-        return "landing-page";
+        return "public/landing-page";
     }
 
     @GetMapping("/")
@@ -64,12 +64,12 @@ public class MainController {
 
     @GetMapping("/registration")
     public String getRegistration(){
-        return "sign-up-page";
+        return "public/sign-up-page";
     }
 
     @GetMapping("/login")
     public String getLogin(){
-        return "login-page";
+        return "public/login-page";
     }
 
 

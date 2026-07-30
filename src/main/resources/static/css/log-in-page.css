@@ -23,16 +23,16 @@ main, #form{
 #log-in{
     display: flex;
     justify-content: center;
+    margin: 20px;
 }
 
 #log-in input{
     padding: 7px;
 }
 .input{
-    padding: 10px;
+    padding: 5px;
 }
 
 .input input{
     padding: 10px;
 }
-
