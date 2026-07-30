@@ -35,7 +35,7 @@ public class MainController {
 
     @GetMapping("/main")
     public String getMainMenu(){
-        return "landing-page";
+        return "login-page";
     }
 
     @GetMapping("/")

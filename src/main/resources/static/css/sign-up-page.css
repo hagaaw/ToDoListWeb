@@ -19,14 +19,15 @@ main, #form{
     align-items: center;
 }
 
-input{
-    margin: 4px;
+label input{
+    margin: 6px;
+    padding: 10px;
 }
-#log-in{
+#sign-up{
     display: flex;
     justify-content: center;
 }
 
-#log-in input{
+#sign-up input{
     padding: 7px;
 }

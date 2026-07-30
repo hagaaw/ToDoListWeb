@@ -1,0 +1,38 @@
+body{
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main{
+    background-color: white;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+main, #form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#log-in{
+    display: flex;
+    justify-content: center;
+}
+
+#log-in input{
+    padding: 7px;
+}
+.input{
+    padding: 10px;
+}
+
+.input input{
+    padding: 10px;
+}
+
