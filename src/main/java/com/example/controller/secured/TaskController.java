@@ -1,8 +1,8 @@
-package com.example.controller;
+package com.example.controller.secured;
 
 
 import com.example.entity.TaskEntity;
-import com.example.service.ServiceForMainController;
+import com.example.service.ServiceForTaskController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +13,10 @@ import java.util.List;
 
 
 @Controller
-public class MainController {
-    private ServiceForMainController service;
+public class TaskController {
+    private ServiceForTaskController service;
     @Autowired
-    public MainController(ServiceForMainController service){
+    public TaskController(ServiceForTaskController service){
         this.service = service;
     }
 
@@ -33,15 +33,6 @@ public class MainController {
         return "private/account-page";
     }
 
-    @GetMapping("/main")
-    public String getMainMenu(){
-        return "public/landing-page";
-    }
-
-    @GetMapping("/")
-    public String redirectToMain(){
-        return "redirect:/main";
-    }
 
     @PostMapping("/task/create")
     public String createTask(@RequestParam String name){
@@ -60,20 +51,4 @@ public class MainController {
         service.executeTask(id);
         return "redirect:/account";
     }
-
-
-    @GetMapping("/registration")
-    public String getRegistration(){
-        return "public/sign-up-page";
-    }
-
-    @GetMapping("/login")
-    public String getLogin(){
-        return "public/login-page";
-    }
-
-
-
-
-
 }
