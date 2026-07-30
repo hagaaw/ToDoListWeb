@@ -35,7 +35,7 @@ public class MainController {
 
     @GetMapping("/main")
     public String getMainMenu(){
-        return "login-page";
+        return "sign-up-page";
     }
 
     @GetMapping("/")
@@ -61,6 +61,16 @@ public class MainController {
         return "redirect:/home";
     }
 
+
+    @GetMapping("/registration")
+    public String getRegistration(){
+        return "sign-up-page";
+    }
+
+    @GetMapping("/login")
+    public String getLogin(){
+        return "login-page";
+    }
 
 
 

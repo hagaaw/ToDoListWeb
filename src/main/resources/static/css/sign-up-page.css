@@ -13,7 +13,7 @@ main{
     padding: 30px;
 }
 
-main, #form{
+main, #form, form{
     display: flex;
     flex-direction: column;
     align-items: center;
