@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -11,7 +11,7 @@
       <h2>Login</h2>
     </div>
     <div id="form">
-      <form>
+      <form method="post" action="/login">
         <div class="input" id="email">
           <label>
             <input type="email" name="email" placeholder="Enter your email">
@@ -22,6 +22,7 @@
             <input type="password" name="password" placeholder="Enter your password">
           </label>
         </div>
+        <div th:if="${isError}">Invalid username or password</div>
         <div id="log-in">
           <input type="submit" value="Log in">
         </div>
