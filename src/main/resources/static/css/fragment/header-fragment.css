@@ -1,0 +1,27 @@
+#head, #left, #right{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+
+#head{
+    justify-content: space-between;
+    margin-bottom: 150px;
+}
+span{
+    margin: 7px;
+}
+
+#left{
+    margin-right: 200px;
+}
+
+a{
+    text-decoration: none;
+    color:white
+}
+
+a:hover{
+    font-weight: bold;
+}

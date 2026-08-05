@@ -3,6 +3,7 @@ package com.example.service;
 
 import com.example.entity.UserEntity;
 import com.example.repository.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,5 +19,9 @@ public class UserService {
 
     public void save(UserEntity user){
         userRepository.save(user);
+    }
+
+    public UserEntity getCurrentUser(){
+        return userRepository.findByEmailIgnoreCase(SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow(()-> new IllegalArgumentException("User not found"));
     }
 }

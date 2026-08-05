@@ -6,66 +6,70 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ToDo List</title>
-    <link href="/css/main-page.css" rel="stylesheet">
+    <link href="/css/account-page.css" rel="stylesheet">
+    <link href="/css/fragment/header-fragment.css" rel="stylesheet">
 </head>
 <body>
-    <section id="to-do-list">
-        <div id="header">
-            <h2 id="title">ToDo List</h2>
-            <span id ="statistics" th:text="${countActive} + ' more to do, ' + ${countDone} + ' done'"></span>
-        </div>
+    <main>
+        <div th:replace="/fragment/header-fragment.html :: header (userName=${userName})"></div>
+        <section id="to-do-list">
+            <div id="header">
+                <h2 id="title">ToDo List</h2>
+                <span id ="statistics" th:text="${countActive} + ' more to do, ' + ${countDone} + ' done'"></span>
+            </div>
 
-        <div id="for-form">
-            <form action="/account">
-                <div id="form">
-                    <div id="button-radio">
-                        <label>
-                            <input type="radio" name="filterMode" value="ALL" th:checked="${filterMode == null || filterMode == 'ALL'}">All
-                        </label>
-                        <label>
-                            <input type="radio" name="filterMode" value="ACTIVE" th:checked="${filterMode == 'ACTIVE'}">Active
-                        </label>
-                        <label>
-                            <input type="radio" name="filterMode" value="DONE" th:checked="${filterMode == 'DONE'}">Done
-                        </label>
-                    </div>
-                    <div id="button-apply">
-                        <input type="submit" value="Apply">
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div id="affairs">
-            <div th:class = "${task.getStatusTask().name() == 'DONE' ? 'done-task' : 'active-task'}" th:each="task: ${tasks}">
-                <div class="name">
-                    <span th:text="${task.getName()}"></span>
-                </div>
-                <div class="buttons-for-task">
-                    <form action="/account/task/execute">
-                        <div class="done" th:if="${task.getStatusTask().name() == 'ACTIVE'}">
-                            <input type="submit" value="">
-                            <input type="hidden" name="id" th:value="${task.getId()}">
+            <div id="for-form">
+                <form action="/account">
+                    <div id="form">
+                        <div id="button-radio">
+                            <label>
+                                <input type="radio" name="filterMode" value="ALL" th:checked="${filterMode == null || filterMode == 'ALL'}">All
+                            </label>
+                            <label>
+                                <input type="radio" name="filterMode" value="ACTIVE" th:checked="${filterMode == 'ACTIVE'}">Active
+                            </label>
+                            <label>
+                                <input type="radio" name="filterMode" value="DONE" th:checked="${filterMode == 'DONE'}">Done
+                            </label>
                         </div>
-                    </form>
-                    <form action="/account/task/remove">
-                        <div class="remove">
-                            <input type="submit" value="">
-                            <input type="hidden" name="id" th:value="${task.getId()}">
+                        <div id="button-apply">
+                            <input type="submit" value="Apply">
                         </div>
-                    </form>
+                    </div>
+                </form>
+            </div>
+            <div id="affairs">
+                <div th:class = "${task.getStatusTask().name() == 'DONE' ? 'done-task' : 'active-task'}" th:each="task: ${tasks}">
+                    <div class="name">
+                        <span th:text="${task.getName()}"></span>
+                    </div>
+                    <div class="buttons-for-task">
+                        <form action="/account/task/execute">
+                            <div class="done" th:if="${task.getStatusTask().name() == 'ACTIVE'}">
+                                <input type="submit" value="">
+                                <input type="hidden" name="id" th:value="${task.getId()}">
+                            </div>
+                        </form>
+                        <form action="/account/task/remove">
+                            <div class="remove">
+                                <input type="submit" value="">
+                                <input type="hidden" name="id" th:value="${task.getId()}">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="new-affair">
-            <form action="/account/task/create" method="post">
-                <div id="name-for-new-affair">
-                    <input type="text" name="name" placeholder="What needs to be done">
-                </div>
-                <div id="button-for-add">
-                    <input type="submit" value="Add Record">
-                </div>
-            </form>
-        </div>
-    </section>
+            <div id="new-affair">
+                <form action="/account/task/create" method="post">
+                    <div id="name-for-new-affair">
+                        <input type="text" name="name" placeholder="What needs to be done">
+                    </div>
+                    <div id="button-for-add">
+                        <input type="submit" value="Add Record">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

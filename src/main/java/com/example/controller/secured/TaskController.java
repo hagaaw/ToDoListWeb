@@ -3,6 +3,7 @@ package com.example.controller.secured;
 
 import com.example.entity.TaskEntity;
 import com.example.service.TaskService;
+import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,18 +15,24 @@ import java.util.List;
 
 @Controller
 public class TaskController {
-    private TaskService service;
+    private TaskService taskService;
+    private UserService userService;
+
+
     @Autowired
-    public TaskController(TaskService service){
-        this.service = service;
+    public TaskController(TaskService taskService, UserService userService) {
+        this.taskService = taskService;
+        this.userService = userService;
     }
+
 
     @GetMapping("/account")
     public String getMain(Model model, @RequestParam(required = false) String filterMode){
 
-        List<TaskEntity> toDoList = service.getAllTask(filterMode);
-        long countDone = service.getCountDone();
-        long countActive = service.getCountActive();
+        List<TaskEntity> toDoList = taskService.getAllTask(filterMode);
+        long countDone = taskService.getCountDone();
+        long countActive = taskService.getCountActive();
+        model.addAttribute("userName", userService.getCurrentUser().getName());
         model.addAttribute("countDone", countDone);
         model.addAttribute("countActive",countActive);
         model.addAttribute("tasks", toDoList);
@@ -36,19 +43,19 @@ public class TaskController {
 
     @PostMapping("/account/task/create")
     public String createTask(@RequestParam String name){
-        service.addTask(name);
+        taskService.addTask(name);
         return "redirect:/account";
     }
 
     @GetMapping("/account/task/remove")
     public String removeTask(@RequestParam int id){
-        service.removeTask(id);
+        taskService.removeTask(id);
         return "redirect:/account";
     }
 
     @GetMapping("/account/task/execute")
     public String executeTask(@RequestParam int id){
-        service.executeTask(id);
+        taskService.executeTask(id);
         return "redirect:/account";
     }
 }

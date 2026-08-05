@@ -1,15 +1,23 @@
 
 body {
-    align-items: center;
-    display: flex;
-    justify-content: center;
     min-height: 100vh;
     background-color: grey;
+}
+
+section {
+    width: 40%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+main{
+    display: flex;
+    flex-direction: column;
 }
 #to-do-list{
     padding: 30px 40px;
     background-color: white;
     border-radius: 30px;
+
 }
 
 #statistics{
@@ -33,6 +41,7 @@ body {
     padding-top:5px;
     display: flex;
     gap:30px;
+    margin-right: 10px;
 }
 
 #button-apply{
