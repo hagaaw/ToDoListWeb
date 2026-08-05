@@ -21,7 +21,8 @@ public class SecurityConfig{
                 .authorizeHttpRequests(auth->auth.
                         requestMatchers("/", "/main", "/registration","/login", "/error-page","/css/**").permitAll()
                         .requestMatchers("/account/**").hasAnyRole(UserRole.USER.name(), UserRole.ADMIN.name())
-                        .requestMatchers("/admin/**").hasAnyRole(UserRole.ADMIN.name()))
+                        .requestMatchers("/admin/**").hasAnyRole(UserRole.ADMIN.name())
+                        .anyRequest().permitAll())
                 .formLogin(form->form
                         .loginPage("/login").defaultSuccessUrl("/account").permitAll())
                 .logout(logout->logout
