@@ -17,6 +17,10 @@ span{
     margin-right: 200px;
 }
 
+#user-name{
+    color:white
+}
+
 a{
     text-decoration: none;
     color:white
