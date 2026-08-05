@@ -8,6 +8,7 @@ public class TaskEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "name", nullable = false)
@@ -17,10 +18,14 @@ public class TaskEntity {
     @Enumerated(EnumType.STRING)
     private StatusTask statusTask;
 
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private UserEntity user;
 
-    public TaskEntity(String name, StatusTask statusTask) {
+    public TaskEntity(String name, StatusTask statusTask, UserEntity user) {
         this.name = name;
         this.statusTask = statusTask;
+        this.user = user;
     }
 
     public TaskEntity() {

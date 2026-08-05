@@ -13,31 +13,33 @@ import java.util.List;
 @Service
 @Transactional
 public class TaskService {
+    private final UserService userService;
     private TaskRepository taskRepository;
 
     @Autowired
-    public TaskService(TaskRepository taskRepository){
+    public TaskService(TaskRepository taskRepository, UserService userService){
         this.taskRepository = taskRepository;
+        this.userService = userService;
     }
 
     public long getCountDone() {
-        return taskRepository.findByStatusTask(StatusTask.DONE).size();
+        return taskRepository.findByStatusTaskAndUserId(StatusTask.DONE, userService.getCurrentUser().getId()).size();
     }
 
     public int getCountActive() {
-        return taskRepository.findByStatusTask(StatusTask.ACTIVE).size();
+        return taskRepository.findByStatusTaskAndUserId(StatusTask.ACTIVE,userService.getCurrentUser().getId()).size();
     }
 
     public List<TaskEntity> getAllTask(String filterMode) {
         if(filterMode == null || filterMode.equals("ALL")){
-            return taskRepository.findAll();
+            return taskRepository.findAllByUserId(userService.getCurrentUser().getId());
         }
 
-        return taskRepository.findByStatusTask(StatusTask.valueOf(filterMode));
+        return taskRepository.findByStatusTaskAndUserId(StatusTask.valueOf(filterMode),userService.getCurrentUser().getId());
     }
 
     public void addTask(String name) {
-        taskRepository.save(new TaskEntity(name, StatusTask.ACTIVE));
+        taskRepository.save(new TaskEntity(name, StatusTask.ACTIVE, userService.getCurrentUser()));
     }
 
     public void removeTask(int id) {
@@ -52,7 +54,4 @@ public class TaskService {
         }
     }
 
-    public List<TaskEntity> sortTask(StatusTask forSort) {
-        return taskRepository.findByStatusTask(forSort);
-    }
 }
