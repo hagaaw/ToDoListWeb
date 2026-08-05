@@ -1,19 +1,11 @@
 package com.example.controller.common;
 
 
-import com.example.service.ServiceForMainController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    private ServiceForMainController service;
-
-    @Autowired
-    public MainController(ServiceForMainController service){
-        this.service = service;
-    }
 
     @GetMapping("/registration")
     public String getRegistration(){

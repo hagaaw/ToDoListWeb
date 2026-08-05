@@ -2,7 +2,7 @@ package com.example.controller.secured;
 
 
 import com.example.entity.TaskEntity;
-import com.example.service.ServiceForTaskController;
+import com.example.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +14,9 @@ import java.util.List;
 
 @Controller
 public class TaskController {
-    private ServiceForTaskController service;
+    private TaskService service;
     @Autowired
-    public TaskController(ServiceForTaskController service){
+    public TaskController(TaskService service){
         this.service = service;
     }
 
