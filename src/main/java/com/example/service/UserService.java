@@ -24,4 +24,8 @@ public class UserService {
     public UserEntity getCurrentUser(){
         return userRepository.findByEmailIgnoreCase(SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow(()-> new IllegalArgumentException("User not foundc"));
     }
+    public boolean haveEmail(String email) {
+        return userRepository.findAllByEmail(email).isPresent();
+    }
+
 }

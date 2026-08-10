@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>mail</title>
+</head>
+<body>
+  <header>
+      <h2>Валидация</h2>
+  </header>
+  <main>
+      <form action="/mail/registration">
+          <input type="hidden" name="email" th:value="${userRegistration.getEmail()}">
+          <label>
+              <input type="text" name="token" placeholder="Type code">
+          </label>
+          <input type="submit">
+      </form>
+  </main>
+</body>
+</html>
