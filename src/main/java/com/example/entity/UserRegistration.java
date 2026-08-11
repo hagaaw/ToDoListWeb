@@ -3,6 +3,8 @@ package com.example.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name="registrations")
 public class UserRegistration {
@@ -16,9 +18,19 @@ public class UserRegistration {
 
     private String name;
 
+    private LocalDateTime createdAt;
+
     private Integer token;
 
     public UserRegistration() {
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreateAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getEmail() {
@@ -66,5 +78,10 @@ public class UserRegistration {
         this.password = password;
         this.name = name;
         this.token = token;
+    }
+
+    @PrePersist
+    private void onCreate(){
+        createdAt = LocalDateTime.now();
     }
 }

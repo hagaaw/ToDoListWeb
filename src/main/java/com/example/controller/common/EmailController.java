@@ -45,16 +45,15 @@ public class EmailController {
                               @RequestParam Integer token){
         UserRegistration userRegistration = registration.findAllByEmail(email);
         if (userRegistration == null){
-            return "redirect:/public/sign-up";
+            return "redirect:/registration";
         }
-        if (token.equals(registration.findAllByEmail(email).getToken())){
+        else if (token.equals(registration.findAllByEmail(email).getToken())){
             UserEntity user = new UserEntity(userRegistration.getName(), userRegistration.getEmail(), passwordEncoder.encode(userRegistration.getPassword()), UserRole.USER);
             userService.save(user);
             registration.delete(userRegistration);
             return "redirect:/login";
         }
-        registration.delete(userRegistration);
-        return "redirect:/sign-up";
+        return "redirect:/registration";
     }
 
     @GetMapping("/mail/registration/page")

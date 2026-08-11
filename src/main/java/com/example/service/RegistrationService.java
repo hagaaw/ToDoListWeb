@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Random;
 
 @Service
@@ -36,5 +37,9 @@ public class RegistrationService {
 
     public void delete(UserRegistration user) {
         registration.delete(user);
+    }
+
+    public void deletByCreatedAtBefore(LocalDateTime cutoff) {
+        registration.deleteByCreatedAtBefore(cutoff);
     }
 }
