@@ -48,7 +48,7 @@ public class EmailController {
             return "redirect:/registration";
         }
         else if (token.equals(registration.findAllByEmail(email).getToken())){
-            UserEntity user = new UserEntity(userRegistration.getName(), userRegistration.getEmail(), passwordEncoder.encode(userRegistration.getPassword()), UserRole.USER);
+            UserEntity user = new UserEntity(userRegistration.getName(), userRegistration.getEmail(), userRegistration.getPassword(), UserRole.USER);
             userService.save(user);
             registration.delete(userRegistration);
             return "redirect:/login";
@@ -71,7 +71,7 @@ public class EmailController {
             return "redirect:/login";
         }
         var token = RegistrationService.generateToken();
-        UserRegistration user = new UserRegistration(name, email, password,token);
+        UserRegistration user = new UserRegistration(name, email, passwordEncoder.encode(password),token);
         registration.save(user);
         Mail mail = new Mail(email, "Валидация почты", String.valueOf(token));
         emailService.sendMail(mail);
